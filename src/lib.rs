@@ -45,7 +45,7 @@ mod tests {
     #[test]
     fn test_price_update() {
         let mut temp = make_struct("GME");
-        temp.update_price(32.0, 55);
+        temp.update_price(32.0, 55).expect("Unable to update price");
         assert_eq!(temp.price, 32.0);
         assert_eq!(temp.timestamp, 55);
     }
