@@ -5,7 +5,8 @@ use yahoo_finance::Streamer;
 async fn main() {
    let streamer = Streamer::new(vec!["AAPL", "QQQ", "^DJI", "^IXIC"]);
 
-   let ticker = TickerInfo::new("GME")
+   let ticker = TickerInfo::new("GME");
+   
    streamer.stream().await
       .for_each(|quote| {
          println!("At {} in session {:?}, {} is trading for ${}", quote.timestamp, quote.session, quote.symbol, quote.price);
