@@ -12,3 +12,8 @@ async fn main() {
       })
       .await;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+}
