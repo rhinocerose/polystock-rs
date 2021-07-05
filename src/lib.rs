@@ -23,6 +23,7 @@ impl TickerInfo {
     ) -> Result<(), Box<dyn std::error::Error>> {
         let old_price = self.price;
         self.price = new_value;
+        self.percent_change = self.calculate_percent_change(new_value, old_value);
         self.timestamp= timestamp;
         Ok(())
     }
@@ -31,8 +32,8 @@ impl TickerInfo {
         new_value: f64,
         old_value: f64
     ) -> Result<f32, Box<dyn std::error::Error>> {
-        let temp: f32 = ((((old_value - new_value) / old_value) * 100.0) as f32);
-        temp
+        let temp: f32 = (((old_value - new_value) / old_value) * 100.0) as f32;
+        Ok(temp)
     }
 }
 
