@@ -11,3 +11,5 @@ yahoo-finance = "0.3.0"
 futures = "0.3"
 futures-util = "0.3"
 tokio = "0.2"
+chrono = { version = "0.4", features = ["serde"] }
+assert_approx_eq = "1.1.0"
