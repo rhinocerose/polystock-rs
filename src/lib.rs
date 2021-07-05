@@ -36,7 +36,7 @@ mod tests {
     
     #[test]
     fn test_struct_creation() {
-        let mut temp = make_struct("GME");
+        let temp = make_struct("GME");
         assert_eq!(temp.ticker, "GME");
         assert_eq!(temp.price, 0.0);
         assert_eq!(temp.timestamp, 0);
