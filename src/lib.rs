@@ -23,6 +23,7 @@ impl TickerInfo {
         self.price = new_value;
         self.last_updated: Local::now();
         Ok(())
+    }
 }
 
 
