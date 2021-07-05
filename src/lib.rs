@@ -1,5 +1,3 @@
-use assert_approx_eq::assert_approx_eq;
-
 struct TickerInfo {
     ticker: String,
     price: f64,
@@ -44,7 +42,8 @@ impl TickerInfo {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+    use assert_approx_eq::assert_approx_eq;
+
     fn make_struct(ticker: &str) -> TickerInfo {
         TickerInfo::new(ticker)
     }
