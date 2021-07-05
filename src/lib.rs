@@ -6,11 +6,12 @@ struct TickerInfo {
     
 impl TickerInfo {
     fn new(
-        ticker: String
+        ticker: &str
     ) -> TickerInfo {
         TickerInfo {
-            ticker,
+            ticker: tisker.to_string(),
             price: 0.0,
+            percent_change: f32,
             last_updated: 0
         }
     }
