@@ -1,4 +1,4 @@
-pub(crate) struct TickerInfo {
+pub struct TickerInfo {
     ticker: String,
     price: f64,
     percent_change: f32,
