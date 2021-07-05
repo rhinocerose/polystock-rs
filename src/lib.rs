@@ -1,6 +1,7 @@
 struct TickerInfo {
     ticker: String,
     price: f32,
+    percent_change: f32,
     last_updated: i64,
 }
     
@@ -9,9 +10,9 @@ impl TickerInfo {
         ticker: &str
     ) -> TickerInfo {
         TickerInfo {
-            ticker: tisker.to_string(),
+            ticker: ticker.to_string(),
             price: 0.0,
-            percent_change: f32,
+            percent_change: 0.0,
             last_updated: 0
         }
     }
@@ -32,7 +33,7 @@ mod tests {
     use super::*;
     
     fn make_struct(ticker: &str) -> TickerInfo {
-        TickerInfo::new(ticker.to_string())
+        TickerInfo::new(ticker)
     }
     
     #[test]
@@ -40,6 +41,7 @@ mod tests {
         let temp = make_struct("GME");
         assert_eq!(temp.ticker, "GME");
         assert_eq!(temp.price, 0.0);
+        assert_eq!(temp.percent_change, 0.0);
         assert_eq!(temp.timestamp, 0);
     }
     
