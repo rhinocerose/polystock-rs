@@ -1,5 +1,6 @@
 use futures::{ future, StreamExt };
 use yahoo_finance::Streamer;
+use polystock_rs;
 
 #[tokio::main]
 async fn main() {
@@ -10,10 +11,11 @@ async fn main() {
    streamer.stream().await
       .for_each(|quote| {
          println!("At {} in session {:?}, {} is trading for ${}", quote.timestamp, quote.session, quote.symbol, quote.price);
+         ticker.update_price(quote.price, quote.timestamp);
          future::ready(())
       })
       .await;
-   ticker.update_price(quote.price, quote.timestamp);
+   
 }
 
 #[cfg(test)]
