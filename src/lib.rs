@@ -16,3 +16,4 @@ impl TickerInfo {
             last_updated: Local::now()
         }
     }
+}
