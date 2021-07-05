@@ -17,3 +17,19 @@ impl TickerInfo {
         }
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    fn make_struct(ticker: String) -> TickerInfo<'static> {
+        TickerInfo::new(ticker)
+    }
+    
+    #[test]
+    fn test_struct_creation() {
+        let mut temp = make_struct("GME");
+        assert_eq!(temp.ticker, "GME");
+        assert_eq!(temp.price, 0.0);
+    }
