@@ -7,7 +7,7 @@ async fn main() {
 
    streamer.stream().await
       .for_each(|quote| {
-         println!("At {} in session {}, {} is trading for ${}", quote.timestamp, quote.session, quote.symbol, quote.price);
+         println!("At {} in session {:?}, {} is trading for ${}", quote.timestamp, quote.session, quote.symbol, quote.price);
          future::ready(())
       })
       .await;
