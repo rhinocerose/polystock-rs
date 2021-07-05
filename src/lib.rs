@@ -16,6 +16,13 @@ impl TickerInfo {
             last_updated: Local::now()
         }
     }
+    
+    fn update_price(&mut self,
+        new_value: f32
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        self.price = new_value;
+        self.last_updated: Local::now();
+        Ok(())
 }
 
 
@@ -23,7 +30,7 @@ impl TickerInfo {
 mod tests {
     use super::*;
     
-    fn make_struct(ticker: String) -> TickerInfo<'static> {
+    fn make_struct(ticker: String) -> TickerInfo {
         TickerInfo::new(ticker)
     }
     
@@ -33,4 +40,12 @@ mod tests {
         assert_eq!(temp.ticker, "GME");
         assert_eq!(temp.price, 0.0);
     }
+    
+    #[test]
+    fn test_price_update() {
+        let mut temp = make_struct("GME");
+        temp.update_price(32.0);
+        assert_eq!(temp.price, 32.0);
+    }
+    
 }
