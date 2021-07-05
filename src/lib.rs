@@ -1,3 +1,5 @@
+use assert_approx_eq::assert_approx_eq;
+
 struct TickerInfo {
     ticker: String,
     price: f64,
@@ -11,7 +13,7 @@ impl TickerInfo {
     ) -> TickerInfo {
         TickerInfo {
             ticker: ticker.to_string(),
-            price: 0.0,
+            price: 1.0,
             percent_change: 0.0,
             timestamp: 0
         }
@@ -51,7 +53,7 @@ mod tests {
     fn test_struct_creation() {
         let temp = make_struct("GME");
         assert_eq!(temp.ticker, "GME");
-        assert_eq!(temp.price, 0.0);
+        assert_eq!(temp.price, 1.0);
         assert_eq!(temp.percent_change, 0.0);
         assert_eq!(temp.timestamp, 0);
     }
@@ -62,6 +64,7 @@ mod tests {
         temp.update_price(32.0, 55).expect("Unable to update price");
         assert_eq!(temp.price, 32.0);
         assert_eq!(temp.timestamp, 55);
+        assert_approx_eq!(temp.percent_change, -31.0);
     }
     
 }
