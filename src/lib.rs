@@ -1,9 +1,7 @@
-use chrono::prelude::*;
-
 struct TickerInfo {
     ticker: String,
     price: f32,
-    last_updated: DateTime<Local>,
+    last_updated: i64,
 }
     
 impl TickerInfo {
@@ -13,15 +11,16 @@ impl TickerInfo {
         TickerInfo {
             ticker,
             price: 0.0,
-            last_updated: Local::now()
+            last_updated: 0
         }
     }
     
     fn update_price(&mut self,
-        new_value: f32
+        new_value: f32,
+        timestamp: i64
     ) -> Result<(), Box<dyn std::error::Error>> {
         self.price = new_value;
-        self.last_updated= Local::now();
+        self.last_updated= timestamp;
         Ok(())
     }
 }
@@ -40,13 +39,15 @@ mod tests {
         let mut temp = make_struct("GME");
         assert_eq!(temp.ticker, "GME");
         assert_eq!(temp.price, 0.0);
+        assert_eq!(temp.timestamp, 0);
     }
     
     #[test]
     fn test_price_update() {
         let mut temp = make_struct("GME");
-        temp.update_price(32.0);
+        temp.update_price(32.0, 55);
         assert_eq!(temp.price, 32.0);
+        assert_eq!(temp.timestamp, 55);
     }
     
 }
