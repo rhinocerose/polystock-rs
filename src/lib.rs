@@ -1,8 +1,8 @@
 struct TickerInfo {
     ticker: String,
-    price: f32,
+    price: f64,
     percent_change: f32,
-    last_updated: i64,
+    timestamp: i64,
 }
     
 impl TickerInfo {
@@ -13,17 +13,26 @@ impl TickerInfo {
             ticker: ticker.to_string(),
             price: 0.0,
             percent_change: 0.0,
-            last_updated: 0
+            timestamp: 0
         }
     }
     
     fn update_price(&mut self,
-        new_value: f32,
+        new_value: f64,
         timestamp: i64
     ) -> Result<(), Box<dyn std::error::Error>> {
+        let old_price = self.price;
         self.price = new_value;
-        self.last_updated= timestamp;
+        self.timestamp= timestamp;
         Ok(())
+    }
+    
+    fn calculate_percent_change(&mut self,
+        new_value: f64,
+        old_value: f64
+    ) -> Result<f32, Box<dyn std::error::Error>> {
+        let temp: f32 = ((((old_value - new_value) / old_value) * 100.0) as f32);
+        temp
     }
 }
 
