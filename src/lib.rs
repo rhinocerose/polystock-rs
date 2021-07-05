@@ -21,7 +21,7 @@ impl TickerInfo {
         new_value: f32
     ) -> Result<(), Box<dyn std::error::Error>> {
         self.price = new_value;
-        self.last_updated: Local::now();
+        self.last_updated= Local::now();
         Ok(())
     }
 }
