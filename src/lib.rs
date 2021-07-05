@@ -21,9 +21,10 @@ impl TickerInfo {
         new_value: f64,
         timestamp: i64
     ) -> Result<(), Box<dyn std::error::Error>> {
-        let old_price = self.price;
+        let old_value = self.price;
         self.price = new_value;
-        self.percent_change = self.calculate_percent_change(new_value, old_value);
+        self.percent_change = self.calculate_percent_change(new_value, old_value)
+                                  .expect("Could not calculate percent change");
         self.timestamp= timestamp;
         Ok(())
     }
