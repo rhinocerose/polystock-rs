@@ -33,3 +33,4 @@ mod tests {
         assert_eq!(temp.ticker, "GME");
         assert_eq!(temp.price, 0.0);
     }
+}
