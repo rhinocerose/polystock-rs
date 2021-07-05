@@ -31,8 +31,8 @@ impl TickerInfo {
 mod tests {
     use super::*;
     
-    fn make_struct(ticker: String) -> TickerInfo {
-        TickerInfo::new(ticker)
+    fn make_struct(ticker: &str) -> TickerInfo {
+        TickerInfo::new(ticker.to_string())
     }
     
     #[test]
