@@ -29,6 +29,11 @@ impl TickerInfo {
         Ok(())
     }
 
+    pub fn get_ticker(&mut self,
+    ) -> Result<String, Box<dyn std::error::Error>> {
+        Ok(self.ticker.clone())
+    }
+
     fn calculate_percent_change(&mut self,
         new_value: f64,
         old_value: f64
@@ -64,6 +69,12 @@ mod tests {
         assert_eq!(temp.price, 32.0);
         assert_eq!(temp.timestamp, 55);
         assert_approx_eq!(temp.percent_change, -3100.0);
+    }
+
+    #[test]
+    fn test_get_name() {
+        let mut temp = make_struct("GME");
+        assert_eq!(temp.get_ticker().expect("Could not find ticker"), "GME");
     }
 
 }
