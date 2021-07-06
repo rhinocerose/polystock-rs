@@ -1,0 +1,28 @@
+name: polystock-rs
+version: "0.1.0"
+author: rhinocerose <ashar.k.latif@gmail.com>
+about: Displays ticker information in polybar
+args:
+    - config:
+        short: c
+        long: config
+        value_name: FILE
+        about: Sets a custom config file
+        takes_value: true
+    - INPUT:
+        about: Sets the input file to use
+        required: true
+        index: 1
+    - verbose:
+        short: v
+        multiple: true
+        about: Sets the level of verbosity
+subcommands:
+    - test:
+        about: Enable testing for polystock-rs
+        version: "0.1.0"
+        author: rhinocerose <ashar.k.latif@gmail.com>
+        args:
+            - debug:
+                short: d
+                about: print debug information
