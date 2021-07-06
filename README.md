@@ -7,11 +7,17 @@ Testing adapted from [this tutorial](https://rust-cli.github.io/book/tutorial/te
 Reading environment variables:
 ```rust
 use std::env;
-use dotenv;
+use dotenv::dotenv;
+use finnhub_rs::client::Client;
 
-fn main() {
-    dotenv::dotenv().expect("Failed to read .env file");
-    println!("Finnhub token: {}",
-         env::var("FINNHUB_TOKEN").expect("FINNHUB_TOKEN not found"));
+#[tokio::main]
+async fn main() {
+    dotenv().ok();
+    let finnhub_key = "FINNHUB_TOKEN";
+    let token = env::var(finnhub_key).expect("Key not present in .env file");
+    let client = Client::new(token);
+
+    let res = client.stock_symbol("US".to_string()).await.expect("Invalid response");
+    println!("{:#?}", res);
 }
 ```
