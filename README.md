@@ -4,7 +4,17 @@
 
 Testing adapted from [this tutorial](https://rust-cli.github.io/book/tutorial/testing.html).
 
-Reading environment variables:
+## CLI Manifest Add
+
+```
+cargo install cargo-edit
+```
+
+```
+cargo add {CRATE}
+```
+
+## Reading environment variables:
 ```rust
 use std::env;
 use dotenv::dotenv;
