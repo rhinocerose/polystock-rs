@@ -13,3 +13,7 @@ futures-util = "0.3"
 tokio = "0.2"
 chrono = { version = "0.4", features = ["serde"] }
 assert_approx_eq = "1.1.0"
+
+[dev-dependencies]
+assert_cmd = "0.10"
+predicates = "1"
