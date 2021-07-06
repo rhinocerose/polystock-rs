@@ -10,11 +10,12 @@ use std::env;
 use dotenv::dotenv;
 use finnhub_rs::client::Client;
 
+const FINNHUB_KEY: &str = "FINNHUB_TOKEN";
+
 #[tokio::main]
 async fn main() {
     dotenv().ok();
-    let finnhub_key = "FINNHUB_TOKEN";
-    let token = env::var(finnhub_key).expect("Key not present in .env file");
+    let token = env::var(FINNHUB_KEY).expect("Key not present in .env file");
     let client = Client::new(token);
 
     let res = client.stock_symbol("US".to_string()).await.expect("Invalid response");
