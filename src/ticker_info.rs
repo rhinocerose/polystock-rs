@@ -57,7 +57,7 @@ mod tests {
     fn test_struct_creation() {
         let temp = make_struct("GME");
         assert_eq!(temp.ticker, "GME");
-        assert_eq!(temp.price, 2.0);
+        assert_eq!(temp.price, 1.0);
         assert_eq!(temp.percent_change, 0.0);
         assert_eq!(temp.timestamp, 0);
     }
