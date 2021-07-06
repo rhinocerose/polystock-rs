@@ -2,7 +2,7 @@
 name = "polystock-rs"
 version = "0.1.0"
 authors = ["rhinocerose <ashar.k.latif@gmail.com>"]
-edition = "2021"
+edition = "2018"
 
 [dependencies]
 yahoo-finance = "0.3.0"
