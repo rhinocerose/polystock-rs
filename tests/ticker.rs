@@ -6,7 +6,7 @@ use std::process::Command; // Run programs
 fn file_doesnt_exist() -> Result<(), Box<dyn std::error::Error>> {
     let mut cmd = Command::cargo_bin("polystock-rs")?;
 
-    cmd.arg("foobar").arg("test/file/doesnt/exist");
+    cmd.arg("GME").arg("test/file/doesnt/exist");
     cmd.assert()
         .failure()
         .stderr(predicate::str::contains("No such file or directory"));
