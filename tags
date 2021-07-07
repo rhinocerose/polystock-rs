@@ -7,9 +7,12 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/86bdb84c/
+CLI Manifest Add	README.md	/^## CLI Manifest Add$/;"	s	chapter:`polystock-rs`
 NEGATIVE_PERCENTAGE_COLOR	src/ticker_info.rs	/^static NEGATIVE_PERCENTAGE_COLOR: &str = "#fc0511";$/;"	v
 Opt	src/main.rs	/^struct Opt {$/;"	s
 POSITIVE_PERCENTAGE_COLOR	src/ticker_info.rs	/^static POSITIVE_PERCENTAGE_COLOR: &str = "#0f5c15";$/;"	v
+Passing Variables	README.md	/^## Passing Variables$/;"	s	chapter:`polystock-rs`
+Reading environment variables:	README.md	/^## Reading environment variables:$/;"	s	chapter:`polystock-rs`
 TickerInfo	src/ticker_info.rs	/^impl TickerInfo {$/;"	c
 TickerInfo	src/ticker_info.rs	/^pub struct TickerInfo {$/;"	s
 `polystock-rs`	README.md	/^# `polystock-rs`$/;"	c
@@ -29,6 +32,7 @@ test_price_update	src/ticker_info.rs	/^    fn test_price_update() {$/;"	f	module
 test_process_quote	src/ticker_info.rs	/^    fn test_process_quote() {$/;"	f	module:tests
 test_return_ticker_values	src/ticker_info.rs	/^    fn test_return_ticker_values() {$/;"	f	module:tests
 test_struct_creation	src/ticker_info.rs	/^    fn test_struct_creation() {$/;"	f	module:tests
+tests	src/main.rs	/^mod tests {$/;"	n
 tests	src/ticker_info.rs	/^mod tests {$/;"	n
 ticker	src/ticker_info.rs	/^    ticker: String,$/;"	m	struct:TickerInfo
 ticker_info	src/lib.rs	/^pub mod ticker_info;$/;"	n
