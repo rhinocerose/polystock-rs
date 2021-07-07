@@ -1,5 +1,7 @@
 use std::env;
 use dotenv::dotenv;
+use tokio_compat_02::FutureExt;
+
 
 use finnhub_rs;
 use futures::{ future, StreamExt };
@@ -49,7 +51,7 @@ async fn main() {
 
     let mut ticker = ticker_info::TickerInfo::new("^N225");
 
-    streamer.stream().await
+    streamer.stream().compat().await
         .for_each(|quote| {
             ticker.process_quote(quote).expect("Unable to process quote");
             // println!("{:?}", ticker.return_ticker_values().unwrap());
