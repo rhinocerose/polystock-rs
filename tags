@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/86bdb84c/
+TickerInfo	src/ticker_info.rs	/^impl TickerInfo {$/;"	c
+TickerInfo	src/ticker_info.rs	/^pub struct TickerInfo {$/;"	s
+`polystock-rs`	README.md	/^# `polystock-rs`$/;"	c
+calculate_percent_change	src/ticker_info.rs	/^    fn calculate_percent_change(&mut self,$/;"	P	implementation:TickerInfo
+get_ticker	src/ticker_info.rs	/^    pub fn get_ticker(&mut self,$/;"	P	implementation:TickerInfo
+main	src/main.rs	/^async fn main() {$/;"	f
+make_struct	src/ticker_info.rs	/^    fn make_struct(ticker: &str) -> TickerInfo {$/;"	f	module:tests
+new	src/ticker_info.rs	/^    pub fn new($/;"	P	implementation:TickerInfo
+percent_change	src/ticker_info.rs	/^    percent_change: f32,$/;"	m	struct:TickerInfo
+price	src/ticker_info.rs	/^    price: f64,$/;"	m	struct:TickerInfo
+test_get_name	src/ticker_info.rs	/^    fn test_get_name() {$/;"	f	module:tests
+test_price_update	src/ticker_info.rs	/^    fn test_price_update() {$/;"	f	module:tests
+test_struct_creation	src/ticker_info.rs	/^    fn test_struct_creation() {$/;"	f	module:tests
+tests	src/ticker_info.rs	/^mod tests {$/;"	n
+ticker	src/ticker_info.rs	/^    ticker: String,$/;"	m	struct:TickerInfo
+ticker_info	src/lib.rs	/^pub mod ticker_info;$/;"	n
+ticker_info	src/main.rs	/^mod ticker_info;$/;"	n
+timestamp	src/ticker_info.rs	/^    timestamp: i64,$/;"	m	struct:TickerInfo
+update_price	src/ticker_info.rs	/^    pub fn update_price(&mut self,$/;"	P	implementation:TickerInfo
