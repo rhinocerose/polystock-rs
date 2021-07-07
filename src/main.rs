@@ -62,6 +62,7 @@ async fn main() {
 
     let mut ticker = ticker_info::TickerInfo::new("^N225");
 
+    /// This uses the tokio-compat-02 crate https://github.com/LucioFranco/tokio-compat-02
     streamer.stream().compat().await
         .for_each(|quote| {
             ticker.process_quote(quote)
