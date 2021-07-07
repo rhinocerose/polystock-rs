@@ -39,21 +39,33 @@ const FINNHUB_TOKEN: &str = "FINNHUB_TOKEN";
 async fn main() {
 
     let opt = Opt::from_args();
-    let streamer = Streamer::new(opt.tickers
-                                 .iter().map(|x| x.as_str().clone())
-                                 .collect::<Vec<_>>());
+    let ticker_list = opt.tickers
+                         .iter().map(|x| x.as_str().clone())
+                         .collect::<Vec<_>>();
+    let spare = ticker_list.clone();
+    let streamer = Streamer::new(ticker_list);
 
     dotenv().ok();
     let finnhub_token = env::var(FINNHUB_TOKEN).expect("Key not present in .env file");
     let finnhub_client = finnhub_rs::client::Client::new(finnhub_token);
-    let res = finnhub_client.stock_symbol("US".to_string()).await.expect("Invalid response");
-    println!("{:#?}", res);
+    // let res = finnhub_client.stock_symbol("US".to_string())
+    //                         .await
+    //                         .expect("Invalid response");
+    let res = finnhub_client.symbol_lookup(spare[0].to_string())
+                            .await
+                            .expect("Invalid response");
+    for i in res.result {
+        println!("{:?}", i.description);
+
+    }
+    // println!("{:#?}", res);
 
     let mut ticker = ticker_info::TickerInfo::new("^N225");
 
     streamer.stream().compat().await
         .for_each(|quote| {
-            ticker.process_quote(quote).expect("Unable to process quote");
+            ticker.process_quote(quote)
+                  .expect("Unable to process quote");
             // println!("{:?}", ticker.return_ticker_values().unwrap());
             future::ready(())
         })
