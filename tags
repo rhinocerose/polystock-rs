@@ -7,22 +7,32 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/86bdb84c/
+NEGATIVE_PERCENTAGE_COLOR	src/ticker_info.rs	/^static NEGATIVE_PERCENTAGE_COLOR: &str = "#fc0511";$/;"	v
+Opt	src/main.rs	/^struct Opt {$/;"	s
+POSITIVE_PERCENTAGE_COLOR	src/ticker_info.rs	/^static POSITIVE_PERCENTAGE_COLOR: &str = "#0f5c15";$/;"	v
 TickerInfo	src/ticker_info.rs	/^impl TickerInfo {$/;"	c
 TickerInfo	src/ticker_info.rs	/^pub struct TickerInfo {$/;"	s
 `polystock-rs`	README.md	/^# `polystock-rs`$/;"	c
+bar_print	src/ticker_info.rs	/^    fn bar_print(&mut self) {$/;"	P	implementation:TickerInfo
 calculate_percent_change	src/ticker_info.rs	/^    fn calculate_percent_change(&mut self,$/;"	P	implementation:TickerInfo
-get_ticker	src/ticker_info.rs	/^    pub fn get_ticker(&mut self,$/;"	P	implementation:TickerInfo
+debug	src/main.rs	/^    debug: bool,$/;"	m	struct:Opt
 main	src/main.rs	/^async fn main() {$/;"	f
-make_struct	src/ticker_info.rs	/^    fn make_struct(ticker: &str) -> TickerInfo {$/;"	f	module:tests
+make_test_quote	src/ticker_info.rs	/^    fn make_test_quote() -> Quote {$/;"	f	module:tests
+make_test_struct	src/ticker_info.rs	/^    fn make_test_struct(ticker: &str) -> TickerInfo {$/;"	f	module:tests
 new	src/ticker_info.rs	/^    pub fn new($/;"	P	implementation:TickerInfo
 percent_change	src/ticker_info.rs	/^    percent_change: f32,$/;"	m	struct:TickerInfo
+percentage_polarity	src/ticker_info.rs	/^    fn percentage_polarity(&self) -> String {$/;"	P	implementation:TickerInfo
 price	src/ticker_info.rs	/^    price: f64,$/;"	m	struct:TickerInfo
-test_get_name	src/ticker_info.rs	/^    fn test_get_name() {$/;"	f	module:tests
+process_quote	src/ticker_info.rs	/^    pub fn process_quote(&mut self,$/;"	P	implementation:TickerInfo
+return_ticker_values	src/ticker_info.rs	/^    pub fn return_ticker_values(&mut self,$/;"	P	implementation:TickerInfo
 test_price_update	src/ticker_info.rs	/^    fn test_price_update() {$/;"	f	module:tests
+test_process_quote	src/ticker_info.rs	/^    fn test_process_quote() {$/;"	f	module:tests
+test_return_ticker_values	src/ticker_info.rs	/^    fn test_return_ticker_values() {$/;"	f	module:tests
 test_struct_creation	src/ticker_info.rs	/^    fn test_struct_creation() {$/;"	f	module:tests
 tests	src/ticker_info.rs	/^mod tests {$/;"	n
 ticker	src/ticker_info.rs	/^    ticker: String,$/;"	m	struct:TickerInfo
 ticker_info	src/lib.rs	/^pub mod ticker_info;$/;"	n
 ticker_info	src/main.rs	/^mod ticker_info;$/;"	n
+tickers	src/main.rs	/^    tickers: Vec<String>,$/;"	m	struct:Opt
 timestamp	src/ticker_info.rs	/^    timestamp: i64,$/;"	m	struct:TickerInfo
 update_price	src/ticker_info.rs	/^    pub fn update_price(&mut self,$/;"	P	implementation:TickerInfo
