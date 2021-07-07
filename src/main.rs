@@ -1,7 +1,7 @@
 use std::env;
 use dotenv::dotenv;
 
-use finnhub_rs::client::Client;
+use finnhub_rs;
 use futures::{ future, StreamExt };
 use yahoo_finance::Streamer;
 use structopt::StructOpt;
@@ -24,21 +24,29 @@ struct Opt {
     #[structopt(short = "t",
                 long = "tickers",
                 help = "Comma separated list of quoted tickers",
+                default_value = "GME",
                 required = true,
-                min_values = 2,
+                min_values = 1,
                 )]
     tickers: Vec<String>,
 }
 
+const FINNHUB_TOKEN: &str = "FINNHUB_TOKEN";
+
 #[tokio::main]
 async fn main() {
-    // let streamer = Streamer::new(vec!["AAPL", "QQQ", "^DJI", "^IXIC"]);
 
     let opt = Opt::from_args();
-    println!("{:?}", opt.tickers);
     let streamer = Streamer::new(opt.tickers
                                  .iter().map(|x| x.as_str().clone())
                                  .collect::<Vec<_>>());
+
+    dotenv().ok();
+    let finnhub_token = env::var(FINNHUB_TOKEN).expect("Key not present in .env file");
+    let finnhub_client = finnhub_rs::client::Client::new(finnhub_token);
+    let res = finnhub_client.stock_symbol("US".to_string()).await.expect("Invalid response");
+    println!("{:#?}", res);
+
     let mut ticker = ticker_info::TickerInfo::new("^N225");
 
     streamer.stream().await

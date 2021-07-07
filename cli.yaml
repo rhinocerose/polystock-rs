@@ -3,12 +3,13 @@ version: "0.1.0"
 author: rhinocerose <ashar.k.latif@gmail.com>
 about: Displays ticker information in polybar
 args:
-    - config:
+    - tickers:
         short: c
-        long: config
+        long: tickers
+        required: true
+        min_values: 1
         value_name: FILE
         about: Sets a custom config file
-        takes_value: true
     - INPUT:
         about: Sets the input file to use
         required: true
