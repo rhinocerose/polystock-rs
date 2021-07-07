@@ -4,13 +4,15 @@
 
 Testing adapted from [this tutorial](https://rust-cli.github.io/book/tutorial/testing.html).
 
+## Passing Variables
+
+Required parameters:
+- `-t` or `--tickers`: An array of space separated, quote-wrapped tickers
+
 ## CLI Manifest Add
 
 ```
 cargo install cargo-edit
-```
-
-```
 cargo add {CRATE}
 ```
 
