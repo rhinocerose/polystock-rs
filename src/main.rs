@@ -1,3 +1,5 @@
+// Interesting implementation https://github.com/xiahongze/yfinance-rust
+
 use std::env;
 use dotenv::dotenv;
 use tokio_compat_02::FutureExt;
@@ -5,7 +7,11 @@ use tokio_compat_02::FutureExt;
 
 use finnhub_rs;
 use futures::{ future, StreamExt };
+
 use yahoo_finance::Streamer;
+// Alternatively this one: https://docs.rs/yahoo_finance_api/1.2.2/yahoo_finance_api/ uses
+// tokio::1.7
+
 use structopt::StructOpt;
 
 mod ticker_info;
@@ -60,14 +66,14 @@ async fn main() {
     }
     // println!("{:#?}", res);
 
-    let mut ticker = ticker_info::TickerInfo::new("^N225");
+    let mut ticker = ticker_info::TickerInfo::new("GME");
 
     // This uses the tokio-compat-02 crate https://github.com/LucioFranco/tokio-compat-02
     streamer.stream().compat().await
         .for_each(|quote| {
             ticker.process_quote(quote)
                   .expect("Unable to process quote");
-            // println!("{:?}", ticker.return_ticker_values().unwrap());
+            println!("{:?}", ticker.return_ticker_values().unwrap());
             future::ready(())
         })
     .await;
